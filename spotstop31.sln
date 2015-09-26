@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spotstop31", "spotstop31\spotstop31.csproj", "{AB9B324F-807B-457D-9E76-6EC0CC165A8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{278E9871-0864-4064-9775-02D0028FB937}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureVMPublishModule.psm1 = PublishScripts\AzureVMPublishModule.psm1
+		PublishScripts\Publish-WebApplicationVM.ps1 = PublishScripts\Publish-WebApplicationVM.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{8C0CF961-BAB0-499A-B08D-1A4EFE06B0BB}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\spotstop31-WAWS-dev.json = PublishScripts\Configurations\spotstop31-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB9B324F-807B-457D-9E76-6EC0CC165A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB9B324F-807B-457D-9E76-6EC0CC165A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB9B324F-807B-457D-9E76-6EC0CC165A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB9B324F-807B-457D-9E76-6EC0CC165A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C0CF961-BAB0-499A-B08D-1A4EFE06B0BB} = {278E9871-0864-4064-9775-02D0028FB937}
+	EndGlobalSection
+EndGlobal
