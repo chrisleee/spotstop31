@@ -26,5 +26,10 @@ namespace spotstop31.Controllers
 
             return View();
         }
+
+        public ContentResult Info()
+        {
+            return Content("Data");
+        }
     }
 }
