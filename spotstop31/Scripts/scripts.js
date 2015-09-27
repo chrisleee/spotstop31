@@ -8,7 +8,7 @@ $("#submit").click(function(){
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
     placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
-    //getRandomPoints();
+    getRandomPoints();
   });
 
 function initialize() {
