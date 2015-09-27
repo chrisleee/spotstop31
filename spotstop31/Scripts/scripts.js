@@ -68,9 +68,9 @@ function placeMarkers(points) {
     var marker2 = new google.maps.Marker({
     position: latlng,
     url: '/',
-    animation: google.maps.Animation.DROP
-    marker.setMap(map);
+    animation: google.maps.Animation.DROP;
+    
   });
-
+    marker.setMap(map);
   }
 }
