@@ -85,8 +85,10 @@ function placeMarkers(points) {
     marker2.setMap(map);
   }
 };
+
+/* end google maps -----------------------------------------------------*/
+});
+
 function updateRangeOutput() {
   $("#rangeOutput").text($("#range").val());
 }
-/* end google maps -----------------------------------------------------*/
-});
