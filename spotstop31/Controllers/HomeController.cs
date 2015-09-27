@@ -99,7 +99,7 @@ namespace spotstop31.Controllers
                     double magnitude = coords.GetDistanceTo(posterCoords); // calculutes distance from user coords to random coords in meters
                     magnitude = magnitude*0.00062137; // converting from meters to miles
 
-                    if (magnitude < radius)
+                    if (magnitude < radius && fetchedPosterData[i].rate <= rate)
                     {
                         amountOfSpots++;
                         sq.amountOfSpots = amountOfSpots;
