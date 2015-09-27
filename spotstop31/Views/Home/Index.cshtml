@@ -24,22 +24,22 @@
                 <div class="container">
                     <div class="navbar-header" style="padding-left:10px">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
                         </button>
                         @Html.ActionLink("SpotStop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
                             <li>@Html.ActionLink("Find Spot", "Index", "Home")</li>
                             <li>@Html.ActionLink("Offer Spot", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
+      </ul>
 
-                    </div>
-                </div>
-            </div>
+          </div>
+        </div>
+    </div>
   
 </div>
 
@@ -52,14 +52,17 @@
               <div id="blah" class="col-sm-4"><!--map- will be postioned here--></div>
               <div class="col-sm-6" id="" style="height:75vh">
 
-                  <h2>Find a Spot</h2>
+                  <h2>Find Your Spot</h2>
                   <form class="navbar-form">
                       <div class="form-group" style=";">
                           <div class="input-group">
 
-                              <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Enter an address">
-
-                              <span style="margin-right:5px" class="input-group-addon" id="submit"><span style="margin-right:5px" class="glyphicon glyphicon-search"> </span> </span>
+                              <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Where do you want to go?">
+                              <form>
+                                       Rate $
+                                  <input type="number" name="quantity" min="1" max="5" id="rate">
+                              </form>
+                              <span class="input-group-addon" id="submit"><span class="glyphicon glyphicon-search"> </span> </span>
                               <input style="margin-left:10px; display:block" type="range" step=".1" min="1" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()">&nbsp;&nbsp;<span style="margin-left:10px; width:5px;" id="rangeOutput"> 2 </span> miles
                           </div>
                       </div>
@@ -69,6 +72,48 @@
                   <div class="panel panel-default" style=" overflow-y:scroll; height:100%">
                       <div class="panel-heading"><a href="">Item heading</a></div>
 
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
                       <p>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
                           Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
@@ -77,40 +122,6 @@
                       </p>
 
                       <hr>
-
-                      <div class="panel panel-default">
-                          <div class="panel-heading"><a href="">Item heading</a></div>
-                      </div>
-                      <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                          Aliquam in felis sit amet augue.
-                      </p>
-
-                      <hr>
-
-                      <div class="panel panel-default">
-                          <div class="panel-heading"><a href="">Item heading</a></div>
-                      </div>
-                      <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                          Aliquam in felis sit amet augue.
-                      </p>
-
-                      <hr>
-
-                      <div class="panel panel-default">
-                          <div class="panel-heading"><a href="">Item heading</a></div>
-                      </div>
-                      <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                          Aliquam in felis sit amet augue.
-                      </p>
                       <p>
                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
                           Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
@@ -126,18 +137,10 @@
                           Aliquam in felis sit amet augue.
                       </p>
 
-                      <hr>
-                      <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                          Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-                          dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-                          Aliquam in felis sit amet augue.
-                      </p>
+                  <hr>
 
                       <hr>
-
-                      <hr>
-                      <!-- /item list -->
+                  <!-- /item list -->
                   </div>
                   
 

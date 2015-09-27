@@ -67,9 +67,9 @@ function changeMap(lat,lng) {
 };
 var map;
 
-function getRandomPoints(lat, lng, radius) {
+function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-  //url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate=0",
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate=0",
  
 })
   .done(function( data ) {
@@ -115,7 +115,7 @@ function addressToLanLat(address){
          if (status === google.maps.GeocoderStatus.OK) {
              var latLong = results[0].geometry.location;
              changeMap(latLong.lat(), latLong.lng());
-             getRandomPoints(latLong.lat(), latLong.lng(), $("#range").val());
+             getRandomPoints(latLong.lat(), latLong.lng(), $("#range").val(), $("#rate").val());
          }
             });
 };
