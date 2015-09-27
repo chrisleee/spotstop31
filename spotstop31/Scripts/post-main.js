@@ -1,4 +1,4 @@
-﻿console.log("hi");
+﻿
 $(document).ready(function () {
     function addressToLanLat(address) {
         var geo = new google.maps.Geocoder;
@@ -12,14 +12,17 @@ $(document).ready(function () {
     }
     function sendData(name,lat, lng, numSpots, rate) {
         $.ajax({
-             url: "http://spotstop31.azurewebsites.net/home/NewPosting?Name="+name+"&mylat="+lat+"&myLong="+lng+ "&rate="+rate,
+            url: "http://spotstop31.azurewebsites.net/home/NewPosting?Name="+name+"&mylat="+lat+"&myLong="+lng+ "&rate="+rate,
 
+        }).done(function() {
+  
+            confirm('This is an example of using JS to create some interaction on a website. Click OK to continue!');
         })
-    }
-    console.log("hi");
+        }
+   
     $("#send").click(function(){
        
-        console.log("click");
+       
         var address = $("#address").val();
         addressToLanLat(address);
     });
