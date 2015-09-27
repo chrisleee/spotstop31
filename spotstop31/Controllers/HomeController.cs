@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Device.Location;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace spotstop31.Controllers
 {
@@ -28,15 +30,43 @@ namespace spotstop31.Controllers
             return View();
         }
 
-        public ActionResult NewSearch (double myLat, double myLong, int radius)
+        public ActionResult NewPosting (string Name, double myLat, double myLong, double rate)
+        {
+            String query = "INSERT INTO dbo.Rentees (Name, Latitude, Longitude, Rate) VALUES (@Name, @Latitude, @Longitude, @Rate)";
+            using (SqlConnection connection = new SqlConnection("Server = tcp:mcos3q7bi2.database.windows.net,1433; Database = newspotstopdb; User ID = spotstopdb@mcos3q7bi2; Password = HackTX2015!; Trusted_Connection = False; Encrypt = True; Connection Timeout = 30"))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {    
+                command.Parameters.Add("@Name", SqlDbType.NChar).Value = Name;
+
+                command.Parameters.Add("@Latitude", SqlDbType.Float).Value = myLat;
+
+                command.Parameters.Add("@Longitude", SqlDbType.Float).Value = myLong;
+
+                command.Parameters.Add("@Rate", SqlDbType.Float).Value = rate;
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            return null;
+        }
+
+        public ActionResult NewSearch (double myLat, double myLong, int radius, double rate)
         {
 
             Random random = new Random();
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
             int amountOfSpots = 0;
-            //int radiusCoord = radius;
+            String query = "INSERT INTO dbo.Rentees (Name, Latitude, Longitude, [Available Spots]) VALUES ('Testcase', 0.000, 0.000, 2)";
+            using (SqlConnection connection = new SqlConnection("Server = tcp:mcos3q7bi2.database.windows.net,1433; Database = newspotstopdb; User ID = spotstopdb@mcos3q7bi2; Password = HackTX2015!; Trusted_Connection = False; Encrypt = True; Connection Timeout = 30"))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+                //int radiusCoord = radius;
 
-            GeoCoordinate coords = new GeoCoordinate(myLat, myLong);
+                GeoCoordinate coords = new GeoCoordinate(myLat, myLong);
 
             for (int i = 0; i < 100; i++)
             {
@@ -64,9 +94,12 @@ namespace spotstop31.Controllers
                 randomNumberLat = random.NextDouble() * (30.563148 - 29.901080) + 29.901080;
                 randomNumberLong = -(random.NextDouble() * (98.216400 - 97.31521) + 97.31521);
 
+                //randomNumberLat = random.NextDouble() * (radius * 2);
+                //randomNumberLong = -(random.NextDouble() * (radius * 2);
+
 
                 GeoCoordinate randomCoords = new GeoCoordinate(randomNumberLat, randomNumberLong);
-                double magnitude = coords.GetDistanceTo(randomCoords); // in meters
+                double magnitude = coords.GetDistanceTo(randomCoords); // calculutes distance from user coords to random coords in meters
                 magnitude = magnitude * 0.00062137; // converting from meters to miles
 
                 //if (Math.Sign(myLat) < 0 && Math.Sign(randomNumberLat) >= 0)
