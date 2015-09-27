@@ -71,6 +71,7 @@ $.ajax({
       console.log(data);
     }
     placeMarkers(data);
+    addElements(data);
   });
 }
 function placeMarkers(points) {
