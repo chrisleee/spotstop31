@@ -18,7 +18,7 @@ $("#submit").click(function(){
 function initialize() {
 
   /* position Austin */
-  var latlng = new google.maps.LatLng(30.2671, -97.7430);
+    var latlng = new google.maps.LatLng(30.2671, -97.7430);
 
   var mapOptions = {
     center: latlng,
@@ -43,7 +43,7 @@ function changeMap(lat,lng) {
   var mapOptions = {
     center: latlng,
     scrollWheel: false,
-    zoom: 12
+    zoom: 16
   };
   
   var marker = new google.maps.Marker({
@@ -101,6 +101,29 @@ function placeMarkers(points) {
   }
   
 };
+
+//function sort
+
+function addElements(data) {
+    var geo = new google.maps.Geocoder;
+    
+    for (var i = 0;i<data.length;i++){
+        var div = $("<div>").addClass("panel panel-default");
+        var lat = points[i].latitude;
+        var lng = points[i].longitude;
+        var latLng = new google.maps.LatLng(30.2671, -97.7430);
+        geo.geocode({'location':latLng}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                var address = results[1].formatted_address;
+                div.html(""+i+". "+address);
+                $("#parentList").append(div);
+            }
+
+        })
+    }
+    
+    
+}
 
 function addressToLanLat(address){
     var geo = new google.maps.Geocoder;
