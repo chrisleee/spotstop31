@@ -10,7 +10,7 @@ $("#submit").click(function(){
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
     placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
-    getRandomPoints();
+    getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val());
   });
 
 function initialize() {
@@ -58,9 +58,9 @@ function changeMap(lat,lng) {
 };
 var map;
 
-function getRandomPoints() {
+function getRandomPoints(lat, lng, radius) {
 $.ajax({
-  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat=0&myLong=0&radius=1",
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius,
   
 })
   .done(function( data ) {
