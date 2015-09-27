@@ -108,7 +108,7 @@ function addressToLanLat(address){
          if (status === google.maps.GeocoderStatus.OK) {
              var latLong = results[0].geometry.location;
              changeMap(latLong.lat(), latLong.lng());
-             getRandomPoints(latLong.lat(), latLong.lng(), $("#range").val(), $("#rate"));
+             getRandomPoints(latLong.lat(), latLong.lng(), $("#range").val(), $("#rate").val());
          }
             });
 };
