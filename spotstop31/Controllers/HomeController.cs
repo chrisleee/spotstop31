@@ -27,23 +27,61 @@ namespace spotstop31.Controllers
             return View();
         }
 
-        public ActionResult NewSearch (double location, int radius)
+        public ActionResult NewSearch (double myLat, double myLong, int radius)
         {
+
             Random random = new Random();
-            double distancemagnitude = 0;
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
 
             for (int i = 0; i < 100; i++)
             {
+                double myLatitude = myLat;
+                double myLongitude = myLong;
                 spotstop31.Models.SearchQuery sq = new Models.SearchQuery();
                 double randomNumberLat = 0.000000;
                 double randomNumberLong = 0.000000;
-                randomNumberLat = random.NextDouble() * (100);
-                randomNumberLong = random.NextDouble() * (100);
-                distancemagnitude = randomNumberLat * randomNumberLat + randomNumberLong * randomNumberLong;
-                distancemagnitude = Math.Sqrt(distancemagnitude);
+                double randomSign = random.NextDouble();
+                double magnitudeLat = 0;
+                double magnitudeLong = 0;
+                bool latSignChange = false;
+                bool longSignChange = false;
 
-                if (distancemagnitude > radius)
+                if (randomSign < 0.5)
+                {
+                    randomNumberLat = random.NextDouble() * (-100);
+                    randomNumberLong = random.NextDouble() * (-100);
+                } else
+                {
+                    randomNumberLat = random.NextDouble() * (100);
+                    randomNumberLong = random.NextDouble() * (100);
+                }
+                if (Math.Sign(myLat) < 0 && Math.Sign(randomNumberLat) >= 0)
+                {
+                    magnitudeLat = Math.Abs(myLat) + Math.Abs(randomNumberLat);
+                }
+                else if(Math.Sign(myLat) > 0 && Math.Sign(randomNumberLat) >= 0)  {
+                    magnitudeLat = Math.Abs(myLat) + Math.Abs(randomNumberLat);
+                }
+
+                if (Math.Sign(myLong) < 0 && Math.Sign(randomNumberLong) >= 0)
+                {
+                    magnitudeLong = Math.Abs(myLong) + Math.Abs(randomNumberLong);
+                }
+                else if (Math.Sign(myLong) > 0 && Math.Sign(randomNumberLong) >= 0)
+                {
+                    magnitudeLong = Math.Abs(myLong) + Math.Abs(randomNumberLong);
+                }
+
+                if (!latSignChange)
+                {
+                    magnitudeLat = Math.Abs(randomNumberLat - myLat);
+                }
+                if (!longSignChange)
+                {
+                    magnitudeLong = Math.Abs(randomNumberLong - myLong);
+                }
+                double distance = Math.Sqrt(magnitudeLong * magnitudeLong + magnitudeLat * magnitudeLat);
+                if (distance > radius)
                 {
                     continue;
                 }
