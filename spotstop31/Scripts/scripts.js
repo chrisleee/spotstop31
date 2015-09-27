@@ -2,8 +2,9 @@
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
-
+$("#rangeOutput").on("input", function () {
+    updateRangeOutput();
+});
 $("#submit").click(function(){
    /* var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
