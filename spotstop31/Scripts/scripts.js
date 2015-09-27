@@ -57,6 +57,7 @@ var map;
 function placeMarkers() {
   var points = [];
   points[0] = [30.288815, -97.747512];
+  points[1] = [30.292897, -97.726403];
   for (var i = 0;i<points.length;i++){
     var lat = points[i][0];
     var lng = points[i][1];
