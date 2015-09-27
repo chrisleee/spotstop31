@@ -6,7 +6,7 @@ $("#submit").click(function(){
     console.log("clicked");
     var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
-    changeMap(arraylatLong[0],arraylatLong[1])
+    changeMap(arraylatLong[0],arraylatLong[1]);
     placeMarkers(makeArray());
   });
 
@@ -65,7 +65,7 @@ function placeMarkers(points) {
     var lat = points[i][0];
     var lng = points[i][1];
     var latlng = new google.maps.LatLng(lat, lng);
-    var marker = new google.maps.Marker({
+    var marker2 = new google.maps.Marker({
     position: latlng,
     url: '/',
     animation: google.maps.Animation.DROP
