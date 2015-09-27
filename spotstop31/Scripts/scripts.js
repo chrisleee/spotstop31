@@ -82,6 +82,8 @@ $.ajax({
     addElements(data);
   });
 }
+
+var listOfMarkers = [];
 function placeMarkers(points) {
   
     var geo = new google.maps.Geocoder;
@@ -105,9 +107,17 @@ function placeMarkers(points) {
         infowindow.setContent(""+this.position);
         infowindow.open(map, this);
     });
+    listOfMarkers[i] = marker2;
     
    
   }
+  
+    var bounds = new google.maps.LatLngBounds();
+    for(i=0;i<listOfMarkers.length;i++) {
+        bounds.extend(markers[i].getPosition());
+    }
+
+    map.fitBounds(bounds);
   
 };
 
@@ -115,9 +125,12 @@ function placeMarkers(points) {
 
 function addElements(data) {
     console.log("hi");
-    var geo = new google.maps.Geocoder;
     
-    for (var i = 0;i<data.length;i++){
+
+
+
+    for (var i = 0; i < data.length; i++) {
+    var geo = new google.maps.Geocoder;
         var lat =data[i].latitude;
         var lng = data[i].longitude;
         var spots = data[i].amountOfSpots;
@@ -127,7 +140,7 @@ function addElements(data) {
         div.html("<h5>" + data[i].distance + "</h5> <p> There are " + spots+" spots available at this location. </p>");
         $("#ParentList").append(div);
             }
-        
+
     }
     
 
