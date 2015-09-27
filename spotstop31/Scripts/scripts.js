@@ -82,7 +82,7 @@ function placeMarkers(points) {
       animation: google.maps.Animation.DROP
     });
     marker2.setMap(map);
-    marker2.click(function () {
+    marker2.click(function() {
         console.log("clicked")
 
     });
