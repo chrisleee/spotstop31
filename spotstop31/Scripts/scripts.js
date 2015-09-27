@@ -62,7 +62,7 @@ function changeMap(lat,lng) {
   
   map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
-  marker.setIcon('~/Content/parkicon.png');
+
 
 };
 var map;
