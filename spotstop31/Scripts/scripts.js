@@ -66,7 +66,7 @@ $.ajax({
       console.log("hi");
       console.log(data);
     }
-    placeMarkers(points);
+    placeMarkers(data);
   });
 }
 
