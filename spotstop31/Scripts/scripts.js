@@ -17,7 +17,7 @@ $("#submit").click(function(){
 
 function initialize() {
 
-  /* position Amsterdam */
+  /* position Austin */
   var latlng = new google.maps.LatLng(30.2671, -97.7430);
 
   var mapOptions = {
@@ -38,7 +38,6 @@ function initialize() {
 };
 function changeMap(lat,lng) {
 
-  /* position Amsterdam */
   var latlng = new google.maps.LatLng(lat, lng);
 
   var mapOptions = {
@@ -75,7 +74,9 @@ $.ajax({
 }
 function placeMarkers(points) {
    //points = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
-  for (var i = 0;i<points.length;i++){
+    var geo = new google.maps.Geocoder;
+    
+    for (var i = 0; i < points.length; i++) {
     var lat = points[i].latitude;
     var lng = points[i].longitude;
     var latlng = new google.maps.LatLng(lat,lng);
