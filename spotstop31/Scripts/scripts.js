@@ -11,6 +11,9 @@ $("#submit").click(function(){
     /*placeMarkers(makeArray()); */
 =======
     changeMap(arraylatLong[0],arraylatLong[1])
+<<<<<<< HEAD
+>>>>>>> parent of 16928e7... place markers
+=======
 >>>>>>> parent of 16928e7... place markers
   });
 
@@ -59,6 +62,7 @@ function changeMap(lat,lng) {
 /* end google maps -----------------------------------------------------*/
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*
 function makeArray() {
   var points = [[30.2881, -97.7473]];
@@ -79,5 +83,7 @@ function placeMarkers(points) {
     marker2.setMap(map);
   }
 }
+=======
+>>>>>>> parent of 16928e7... place markers
 =======
 >>>>>>> parent of 16928e7... place markers
