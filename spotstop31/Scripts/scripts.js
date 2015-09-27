@@ -26,10 +26,13 @@ function initialize() {
     zoom: 12
   };
   
+  
+
   var marker = new google.maps.Marker({
     position: latlng,
     url: '/',
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.DROP,
+    
   });
   
   var map = new google.maps.Map(document.getElementById("blah"), mapOptions);
@@ -46,23 +49,27 @@ function changeMap(lat,lng) {
     zoom: 16
   };
   
+  var image = {
+      url: "../Content/parkicon.png",
+
+  }
   var marker = new google.maps.Marker({
     position: latlng,
     url: '/',
     animation: google.maps.Animation.DROP,
-    icon: "https://cdn4.iconfinder.com/data/icons/car-service-1/512/park-512.png"
+    icon: image
   });
   
   map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
-  marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+  marker.setIcon('~/Content/parkicon.png');
 
 };
 var map;
 
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate=0",
  
 })
   .done(function( data ) {
@@ -76,6 +83,7 @@ $.ajax({
   });
 }
 function placeMarkers(points) {
+   //points = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
     var geo = new google.maps.Geocoder;
     
     for (var i = 0; i < points.length; i++) {
@@ -110,11 +118,11 @@ function addElements(data) {
     var geo = new google.maps.Geocoder;
     
     for (var i = 0;i<data.length;i++){
-       var lat =data[i].latitude;
+        var lat =data[i].latitude;
         var lng = data[i].longitude;
         console.log(data[i]);
         var latLng = new google.maps.LatLng(lat, lng);
-       geo.geocode({'location':latLng}, function(results, status) {
+        geo.geocode({'location':latLng}, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                  var div = $("<div>").addClass("panel panel-default").attr("id", i);
                 
@@ -124,7 +132,7 @@ function addElements(data) {
                 $("#ParentList").append(div);
             }
 
-        }) 
+        })
         
     }
     
