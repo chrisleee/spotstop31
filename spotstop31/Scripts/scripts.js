@@ -49,7 +49,8 @@ function changeMap(lat,lng) {
   var marker = new google.maps.Marker({
     position: latlng,
     url: '/',
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.DROP,
+    icon: "https://cdn4.iconfinder.com/data/icons/car-service-1/512/park-512.png"
   });
   
   map = new google.maps.Map(document.getElementById("blah"), mapOptions);
