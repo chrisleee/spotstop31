@@ -56,19 +56,21 @@ namespace spotstop31.Controllers
             Random random = new Random();
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
             int amountOfSpots = 0;
-            String query = "INSERT INTO dbo.Rentees (Name, Latitude, Longitude, [Available Spots]) VALUES ('Testcase', 0.000, 0.000, 2)";
-            using (SqlConnection connection = new SqlConnection("Server = tcp:mcos3q7bi2.database.windows.net,1433; Database = newspotstopdb; User ID = spotstopdb@mcos3q7bi2; Password = HackTX2015!; Trusted_Connection = False; Encrypt = True; Connection Timeout = 30"))
-            using (SqlCommand command = new SqlCommand(query, connection))
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-                connection.Close();
-            }
-                //int radiusCoord = radius;
+            //String query = "INSERT INTO dbo.Rentees (Name, Latitude, Longitude, [Available Spots]) VALUES ('Testcase', 0.000, 0.000, 2)";
+            //using (SqlConnection connection = new SqlConnection("Server = tcp:mcos3q7bi2.database.windows.net,1433; Database = newspotstopdb; User ID = spotstopdb@mcos3q7bi2; Password = HackTX2015!; Trusted_Connection = False; Encrypt = True; Connection Timeout = 30"))
+            //using (SqlCommand command = new SqlCommand(query, connection))
+            //{
+            //    connection.Open();
+            //    command.ExecuteNonQuery();
+            //    connection.Close();
+            //}
+          //int radiusCoord = radius;
 
-                GeoCoordinate coords = new GeoCoordinate(myLat, myLong);
+            GeoCoordinate coords = new GeoCoordinate(myLat, myLong);
 
-            for (int i = 0; i < 100; i++)
+            int randomMinAmountOfSpots = random.Next(10, 30);
+
+            while (amountOfSpots < randomMinAmountOfSpots)
             {
                 double myLatitude = myLat;
                 double myLongitude = myLong;
