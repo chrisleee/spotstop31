@@ -6,15 +6,15 @@ $("#rangeOutput").on("input", function () {
     updateRangeOutput();
 });
 $("#submit").click(function(){
-   /* var latLong = $("#latLong").val();
+    var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val()); */
-    console.log("click");
+    getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val()); 
+   /* console.log("click");
     var address = $("#latLong").val();
     console.log(addressToLanLat(address));
     changeMap(latLong.lat(), latLong.lng());
-    getRandomPoints(arraylatLong[0], arraylatLong[1], $("#range").val());
+    getRandomPoints(arraylatLong[0], arraylatLong[1], $("#range").val());*/
   });
 
 function initialize() {
@@ -64,7 +64,7 @@ var map;
 
 function getRandomPoints(lat, lng, radius) {
 $.ajax({
-  //url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius,
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius,
  
 })
   .done(function( data ) {
@@ -76,7 +76,7 @@ $.ajax({
   });
 }
 function placeMarkers(points) {
-    points = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
+   //points = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
   for (var i = 0;i<points.length;i++){
     var lat = points[i].latitude;
     var lng = points[i].longitude;
@@ -106,7 +106,7 @@ function addressToLanLat(address){
     var geo = new google.maps.Geocoder;
      geo.geocode({'address': address}, function(results, status) {
          if (status === google.maps.GeocoderStatus.OK) {
-             return results[0].geometry.location;
+            return ( results[0].geometry.location);
          }
             });
 };
