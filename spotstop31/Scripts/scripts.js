@@ -66,7 +66,7 @@ var map;
 
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=true",
+    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate
  
 })
   .done(function( data ) {
