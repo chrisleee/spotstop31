@@ -2,13 +2,15 @@
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
+
 $("#submit").click(function(){
     console.log("clicked");
     var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    //placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
-    getRandomPoints();
+    placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
+    getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val());
   });
 
 function initialize() {
@@ -56,22 +58,24 @@ function changeMap(lat,lng) {
 };
 var map;
 
-function getRandomPoints() {
+function getRandomPoints(lat, lng, radius) {
 $.ajax({
-  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat=0&myLong=0&radius=50",
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius,
   
 })
   .done(function( data ) {
     if ( console && console.log ) {
-      console.log(JSON.parse(data));
+      console.log("hi");
+      console.log(data);
     }
+    placeMarkers(data);
   });
 }
 
 function placeMarkers(points) {
   for (var i = 0;i<points.length;i++){
-    var lat = points[i][0];
-    var lng = points[i][1];
+    var lat = points[i].latitude;
+    var lng = points[i].longitude;
     var latlng = new google.maps.LatLng(lat,lng);
     var marker2 = new google.maps.Marker({
       position: latlng,
@@ -81,5 +85,10 @@ function placeMarkers(points) {
     marker2.setMap(map);
   }
 };
+
 /* end google maps -----------------------------------------------------*/
 });
+
+function updateRangeOutput() {
+  $("#rangeOutput").text($("#range").val());
+}
