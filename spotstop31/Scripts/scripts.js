@@ -1,7 +1,7 @@
 
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
-
+//$("#datetimePicker").datetimepicker();
 $("#range").on("input", function () {
     updateRangeOutput();
 });
@@ -93,12 +93,12 @@ function placeMarkers(points) {
         url: "../Content/parkicon.png",
 
     }
-    
+  
     marker2 = new google.maps.Marker({
       position: latlng,
       url: '/',
       animation: google.maps.Animation.DROP,
-      url: image
+      icon: image
     });
     
     marker2.setMap(map);
