@@ -24,6 +24,9 @@ namespace spotstop31.Models
         public DateTime startTime;
         public DateTime endTime;
         public int amountOfSpots;
+        public string name;
+        public double rate;
+        public double distance;
     }
 
 
