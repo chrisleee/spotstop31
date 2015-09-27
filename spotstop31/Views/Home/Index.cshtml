@@ -55,20 +55,21 @@
                   <h2>Find Your Spot</h2>
                   <form class="navbar-form">
                       <div class="form-group" style=";">
+                          <input id="datetimePicker"type="text" />
                           <div class="input-group">
 
                               <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Where do you want to go?">
-                              <form>
+                              
                                        Rate $
-                                  <input type="number" name="quantity" min="1" max="5" id="rate">
-                              </form>
+                                  <input type="number" name="quantity" min="1" max="1000" id="rate">
+                            
                               <span class="input-group-addon" id="submit"><span class="glyphicon glyphicon-search"> </span> </span>
                               <input style="margin-left:10px; display:block" type="range" step=".1" min="1" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()">&nbsp;&nbsp;<span style="margin-left:10px; width:5px;" id="rangeOutput"> 2 </span> miles
                           </div>
                       </div>
                   </form>
 
-                  <div id="ParentList" class="panel panel-default"></div>
+                  <div id="ParentList" class="panel panel-default" style=" overflow-y:scroll; height:100%"></div>
                   
 
                   <hr>
@@ -85,14 +86,25 @@
       </div>
   	
     
-  </div>
-</div>
+  
+
 <!-- end template -->
 
 	<!-- script references -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-		<script src="../Scripts/bootstrap.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
-		<script src="../Scripts/scripts.js"></script>
+    
+		
+		
+        
+
+       
 	</body>
+
+
 </html>
+<link rel="stylesheet" type="text/css" href="../Content/jquery.datetimepicker.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="../Scripts/bootstrap.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+
+<script src="../Scripts/jquery.datetimepicker.full.min.js"></script>
+<script src="../Scripts/scripts.js"></script>
