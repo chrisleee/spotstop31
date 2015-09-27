@@ -6,15 +6,13 @@ $("#rangeOutput").on("input", function () {
     updateRangeOutput();
 });
 $("#submit").click(function(){
-    var latLong = $("#latLong").val();
+   /* var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val()); 
-   /* console.log("click");
+    getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val()); */
+    console.log("click");
     var address = $("#latLong").val();
-    console.log(addressToLanLat(address));
-    changeMap(latLong.lat(), latLong.lng());
-    getRandomPoints(arraylatLong[0], arraylatLong[1], $("#range").val());*/
+    addressToLanLat(address);
   });
 
 function initialize() {
@@ -106,7 +104,9 @@ function addressToLanLat(address){
     var geo = new google.maps.Geocoder;
      geo.geocode({'address': address}, function(results, status) {
          if (status === google.maps.GeocoderStatus.OK) {
-            return ( results[0].geometry.location);
+             var latLong = results[0].geometry.location;
+             changeMap(latLong.lat(), latLong.lng());
+             getRandomPoints(latLong.lat(), latLong.lng(), $("#range").val());
          }
             });
 };
