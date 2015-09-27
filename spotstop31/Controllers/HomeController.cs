@@ -82,7 +82,7 @@ namespace spotstop31.Controllers
             
         }
 
-        public ActionResult NewSearch (double myLat, double myLong, int radius, double rate)
+        public ActionResult NewSearch (double myLat, double myLong, double radius, double rate)
         {
 
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
