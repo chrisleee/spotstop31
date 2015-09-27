@@ -110,8 +110,8 @@ function addElements(data) {
     
     for (var i = 0;i<data.length;i++){
         var div = $("<div>").addClass("panel panel-default");
-        var lat = points[i].latitude;
-        var lng = points[i].longitude;
+        var lat =data[i].latitude;
+        var lng = data[i].longitude;
         var latLng = new google.maps.LatLng(30.2671, -97.7430);
         geo.geocode({'location':latLng}, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
