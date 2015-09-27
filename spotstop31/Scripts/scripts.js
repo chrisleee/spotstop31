@@ -51,7 +51,7 @@ function changeMap(lat,lng) {
     animation: google.maps.Animation.DROP
   });
   
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
   marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 
