@@ -58,16 +58,18 @@ function changeMap(lat,lng) {
  
   });
   
+
   map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
-
+  centerPoint = marker;
+  listOfMarkers[0] = centerPoint;
 
 };
 var map;
-
+var centerPoint;
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-   // url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=true",
+    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
  
 })
   .done(function( data ) {
@@ -75,7 +77,7 @@ $.ajax({
       console.log("hi");
       console.log(data);
     }
-    data = JSON.parse('[{"rate":3,"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"rate":5,"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
+  //  data = JSON.parse('[{"rate":3,"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"rate":5,"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
     placeMarkers(data);
     $("#ParentList").empty();
     data = mergeSortDistance(data);
@@ -120,7 +122,7 @@ function placeMarkers(points) {
         })
         infowindow.open(map, this);
     });
-    listOfMarkers[i] = marker2;
+    listOfMarkers[i+1] = marker2;
     
    
   }

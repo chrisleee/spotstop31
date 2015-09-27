@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>post</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div> 
+        <div class="navbar navbar-inverse navbar-fixed-top" style="margin:0px">
+            <div class="container">
+                <div class="navbar-header" style="padding-left:10px">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("SpotStop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Find Spot", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Offer Spot", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div style=" top:80px; position: relative"><div style="width:50%">
+    <input type="text" class="form-control input-box-homepage" id="address" placeholder="Enter your address:">
+
+    <input type="number" name="quantity" min="1" max="1000" id="rate">/hour <br />
+    <input type="number" name="quantity" min="1" max="1000" id="numSpots">Spots available
+</div>
+<form class="navbar-form">
+    <div class="form-group" style=";">
+
+        <div class="input-group">
+
+
+
+            <span class="input-group-addon" id="send"><span class="glyphicon glyphicon-save:before"> </span> </span>
+        </div>
+    </div>
+</form></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="../Scripts/post-main.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+</body>
+</html>

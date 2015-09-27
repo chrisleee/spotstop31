@@ -118,12 +118,29 @@ namespace spotstop31.Controllers
             return Json(s, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult NewBid(string name, double bid)
+        {
+            string sql = "UPDATE Rentees SET Rate = @bid Where Name = @name";
+            SqlConnection connection = new SqlConnection("Server = tcp:mcos3q7bi2.database.windows.net,1433; Database = newspotstopdb; User ID = spotstopdb@mcos3q7bi2; Password = HackTX2015!; Trusted_Connection = False; Encrypt = True; Connection Timeout = 30");
+            SqlCommand command = new SqlCommand(sql, connection);
+            command.Parameters.AddWithValue("name", name);
+            command.Parameters.AddWithValue("@bid", bid);
+            command.Parameters.Add("@Rate", SqlDbType.Float).Value = bid;
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
+            return null;
+        }
+
         public ContentResult Info()
         {
             return Content("Data");
         }
 
         public ActionResult Intro() {
+            return View();
+        }
+        public ActionResult post() {
             return View();
         }
     }
