@@ -49,15 +49,12 @@ function changeMap(lat,lng) {
     zoom: 16
   };
   
-  var image = {
-      url: "../Content/parkicon.png",
-
-  }
+  
   var marker = new google.maps.Marker({
     position: latlng,
     url: '/',
     animation: google.maps.Animation.DROP,
-    icon: image
+ 
   });
   
   map = new google.maps.Map(document.getElementById("blah"), mapOptions);
@@ -93,10 +90,16 @@ function placeMarkers(points) {
     var lat = points[i].latitude;
     var lng = points[i].longitude;
     var latlng = new google.maps.LatLng(lat,lng);
+    var image = {
+        url: "../Content/parkicon.png",
+
+    }
+    
     marker2 = new google.maps.Marker({
       position: latlng,
       url: '/',
-      animation: google.maps.Animation.DROP
+      animation: google.maps.Animation.DROP,
+      url: image
     });
     
     marker2.setMap(map);
