@@ -7,7 +7,8 @@ $("#submit").click(function(){
     var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
+    //placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
+    getRandomPoints();
   });
 
 function initialize() {
@@ -45,7 +46,7 @@ function changeMap(lat,lng) {
   var marker = new google.maps.Marker({
     position: latlng,
     url: '/',
-    animation: google.maps.Animation.BOUNCE
+    animation: google.maps.Animation.DROP
   });
   
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -54,6 +55,18 @@ function changeMap(lat,lng) {
 
 };
 var map;
+
+function getRandomPoints() {
+$.ajax({
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat=0&myLong=0&radius=50",
+  
+})
+  .done(function( data ) {
+    if ( console && console.log ) {
+      console.log(JSON.parse(data));
+    }
+  });
+}
 
 function placeMarkers(points) {
   for (var i = 0;i<points.length;i++){
