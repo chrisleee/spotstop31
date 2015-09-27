@@ -115,9 +115,12 @@ function placeMarkers(points) {
 
 function addElements(data) {
     console.log("hi");
-    var geo = new google.maps.Geocoder;
     
-    for (var i = 0;i<data.length;i++){
+
+
+
+    for (var i = 0; i < data.length; i++) {
+        var geo = new google.maps.Geocoder;
         var lat =data[i].latitude;
         var lng = data[i].longitude;
         console.log(data[i]);
@@ -126,10 +129,6 @@ function addElements(data) {
             if (status === google.maps.GeocoderStatus.OK) {
                 var address = results[0].formatted_address;
                 $("#ParentList").append($("<div>").addClass("panel panel-default").text(address));
-                
-                
-                
-                
                
             }
 
