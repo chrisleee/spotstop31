@@ -168,7 +168,7 @@ function addElements(data) {
         var lng = data[i].longitude;
         var spots = data[i].amountOfSpots;
         var latLng = new google.maps.LatLng(lat, lng);
-        var div = $("<div>").addClass("panel panel-default").attr("id", i);
+        var div = $("<div>").addClass("panel panel-default our-panel").attr("id", i);
         var thereString;
         var spotsString;
         if (spots === 1) {
