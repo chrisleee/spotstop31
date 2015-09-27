@@ -103,5 +103,9 @@ namespace spotstop31.Controllers
         {
             return Content("Data");
         }
+
+        public ActionResult Intro() {
+            return View();
+        }
     }
 }
