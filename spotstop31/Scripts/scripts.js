@@ -45,11 +45,12 @@ function changeMap(lat,lng) {
   var marker = new google.maps.Marker({
     position: latlng,
     url: '/',
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.BOUNCE
   });
   
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   marker.setMap(map);
+  marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 
 };
 var map;
