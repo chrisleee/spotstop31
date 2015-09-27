@@ -167,7 +167,7 @@ function addElements(data) {
         var lng = data[i].longitude;
         var spots = data[i].amountOfSpots;
         var latLng = new google.maps.LatLng(lat, lng);
-        var div = $("<div>").addClass("panel panel-default").attr("id", i);
+        var div = $("<div>").addClass("panel panel-default our-panel").attr("id", i);
         var thereString;
         var spotsString;
         if (spots === 1) {
@@ -178,7 +178,7 @@ function addElements(data) {
             thereString = "There are ";
             spotsString = " spots ";
         }
-        div.html("<h3> ($" + data[i].rate.toFixed(2) + ") " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
+        div.html("<h3> $" + data[i].rate + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
         $("#ParentList").append(div);
         div.data("lat", lat);
         div.data("lng", lng);

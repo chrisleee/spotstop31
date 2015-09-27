@@ -8,6 +8,14 @@ license: MIT
 author: bootply.com
 */
 
+.our-panel:hover {
+    background-color:lightgray
+}
+
+.our-panel{
+    cursor:pointer;
+}
+
 
 html,body{
   	height:100%;
