@@ -54,7 +54,7 @@ function changeMap(lat,lng) {
 };
 /* end google maps -----------------------------------------------------*/
 });
-
+/*
 function makeArray() {
   var points = [[30.2881, -97.7473]];
   return points;
