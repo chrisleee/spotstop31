@@ -92,16 +92,18 @@ function placeMarkers(points) {
         content: "holding..."
     });
     marker2.addListener('click', function () {
+        var geo = new google.maps.Geocoder;
         geo.geocode({ 'location': this.position }, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 var address = results[0].formatted-address;
-        }
-        infowindow.setContent(""+address);
-        infowindow.open(map, this);
-    });
+            }
+        });
+            infowindow.setContent(""+address);
+            infowindow.open(map, this);
+        });
     
    
-  }
+    };
   
 };
 
@@ -121,9 +123,3 @@ function addressToLanLat(address){
 function updateRangeOutput() {
   $("#rangeOutput").text($("#range").val());
 }
-
-geo.geocode({ 'location': this.position }, function (results, status) {
-    if (status === google.maps.GeocoderStatus.OK) {
-        results[0].formatted-address;
-    }
-});
