@@ -64,7 +64,7 @@ $.ajax({
   .done(function( data ) {
     if ( console && console.log ) {
       console.log("hi");
-      console.log(JSON.parse(data));
+      console.log(data);
     }
   });
 }
