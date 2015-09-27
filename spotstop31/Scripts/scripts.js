@@ -1,7 +1,7 @@
 
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
-
+//$("#datetimePicker").datetimepicker();
 $("#range").on("input", function () {
     updateRangeOutput();
 });
@@ -67,7 +67,7 @@ var map;
 
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=false",
+    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=true",
  
 })
   .done(function( data ) {
@@ -101,7 +101,7 @@ function placeMarkers(points) {
       position: latlng,
       url: '/',
       animation: google.maps.Animation.DROP,
-      url: image
+      icon: image
     });
     
     marker2.setMap(map);
@@ -162,7 +162,7 @@ function mergeSortDistance(items){
     //Add Elements to Side List
 function addElements(data) {
     console.log("hi");
-
+    
     for (var i = 0; i < data.length; i++) {
         var lat = data[i].latitude;
         var lng = data[i].longitude;
@@ -189,8 +189,8 @@ function addElements(data) {
             map.setCenter(latLng);
         })
 
+            }
     }
-}
     
 
 function addressToLanLat(address){

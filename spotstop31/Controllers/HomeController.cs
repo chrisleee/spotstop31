@@ -7,6 +7,7 @@ using System.Device.Location;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace spotstop31.Controllers
 {
@@ -81,53 +82,13 @@ namespace spotstop31.Controllers
             
         }
 
-        public ActionResult NewSearch (double myLat, double myLong, int radius, double rate, bool randomSimul)
+        public ActionResult NewSearch (double myLat, double myLong, double radius, double rate)
         {
 
-            Random random = new Random();
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
             int amountOfSpots = 0;
-
             GeoCoordinate coords = new GeoCoordinate(myLat, myLong);
 
-            if (randomSimul)
-            {
-                int randomMinAmountOfSpots = random.Next(10, 30);
-                while (amountOfSpots < randomMinAmountOfSpots)
-                {
-                    spotstop31.Models.SearchQuery sq = new Models.SearchQuery();
-                    double randomNumberLat = 0.000000;
-                    double randomNumberLong = 0.000000;
-
-                    randomNumberLat = random.NextDouble() * (30.563148 - 29.901080) + 29.901080;
-                    randomNumberLong = -(random.NextDouble() * (98.216400 - 97.31521) + 97.31521);
-
-
-
-                    GeoCoordinate randomCoords = new GeoCoordinate(randomNumberLat, randomNumberLong);
-                    double magnitude = coords.GetDistanceTo(randomCoords); // calculutes distance from user coords to random coords in meters
-                    magnitude = magnitude * 0.00062137; // converting from meters to miles
-
-                    if (magnitude > radius)
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        amountOfSpots++;
-                        sq.amountOfSpots = amountOfSpots;
-                        sq.latitude = randomNumberLat;
-                        sq.longitude = randomNumberLong;
-                        sq.startTime = new DateTime(2015, 9, 25);
-                        sq.endTime = new DateTime(2015, 9, 26);
-                        sq.radius = radius;
-                        sq.distance = magnitude;
-                        s.Add(sq);
-                    }
-                }
-            }
-            else
-            {
                 var fetchedPosterData = new List<PosterData>();
                 fetchedPosterData = SerializingDatabase();
 
@@ -149,10 +110,10 @@ namespace spotstop31.Controllers
                         sq.radius = radius;
                         sq.name = fetchedPosterData[i].name;
                         sq.rate = fetchedPosterData[i].rate;
+                        sq.distance = magnitude;
                         s.Add(sq);
                     }
                 }
-            }
 
             return Json(s, JsonRequestBehavior.AllowGet);
         }
