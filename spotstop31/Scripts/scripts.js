@@ -179,7 +179,7 @@ function addElements(data) {
             thereString = "There are ";
             spotsString = " spots ";
         }
-        div.html("<h3> $" + data[i].rate + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
+        div.html("<h3> $" + data[i].rate + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + "<b>"+spots+"</b>" + spotsString + "available at this location. </p>");
         $("#ParentList").append(div);
         div.data("lat", lat);
         div.data("lng", lng);
