@@ -96,11 +96,12 @@ function placeMarkers(points) {
         var address;
         geo.geocode({ 'location': this.position }, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
-               address = results[0].formatted-address;
+                address = results[0].formatted - address;
+                infowindow.setContent("" + address);
+                infowindow.open(map, this);
             }
         });
-            infowindow.setContent(""+address);
-            infowindow.open(map, this);
+            
         });
     
    
