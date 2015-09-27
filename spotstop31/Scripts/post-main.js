@@ -6,7 +6,7 @@ $(document).ready(function () {
             if (status === google.maps.GeocoderStatus.OK) {
                 var latLong = results[0].geometry.location;
                 console.log(latLong);
-               sendData($("#name".val()),latLong.lat(), latLong.lng(), $("#range").val(), $("#rate").val());
+               sendData($("#name").val(),latLong.lat(), latLong.lng(), $("#range").val(), $("#rate").val());
             }
         });
     }
