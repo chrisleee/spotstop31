@@ -69,7 +69,7 @@ var map;
 
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate=0",
+    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=1",
  
 })
   .done(function( data ) {
@@ -77,13 +77,13 @@ $.ajax({
       console.log("hi");
       console.log(data);
     }
-    //data = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
+   // data = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
     placeMarkers(data);
     addElements(data);
   });
 }
 function placeMarkers(points) {
-   //points = JSON.parse('[{"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
+  
     var geo = new google.maps.Geocoder;
     
     for (var i = 0; i < points.length; i++) {
@@ -120,24 +120,16 @@ function addElements(data) {
     for (var i = 0;i<data.length;i++){
         var lat =data[i].latitude;
         var lng = data[i].longitude;
+        var spots = data[i].amountOfSpots;
         console.log(data[i]);
         var latLng = new google.maps.LatLng(lat, lng);
-        geo.geocode({'location':latLng}, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                 var div = $("<div>").addClass("panel panel-default").attr("id", i);
-                
-                var address = results[0].formatted_address;
-                div.html(""  + address);
-                
-                $("#ParentList").append(div);
+        var div = $("<div>").addClass("panel panel-default").attr("id", i);
+        div.html("<h5>" + data[i].distance + "</h5> <p> There are " + spots+" spots available at this location. </p>");
+        $("#ParentList").append(div);
             }
-
-        })
         
     }
     
-    
-}
 
 function addressToLanLat(address){
     var geo = new google.maps.Geocoder;
