@@ -71,6 +71,6 @@ function placeMarkers(points) {
     animation: google.maps.Animation.DROP;
     
   });
-    marker.setMap(map);
+    marker2.setMap(map);
   }
 }
