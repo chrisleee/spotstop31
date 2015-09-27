@@ -58,7 +58,7 @@ var map;
 
 function getRandomPoints() {
 $.ajax({
-  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat=0&myLong=0&radius=50",
+  url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat=0&myLong=0&radius=1",
   
 })
   .done(function( data ) {
