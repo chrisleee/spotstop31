@@ -2,7 +2,7 @@
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
 
-$("#rangeOutput").on("input", function () {
+$("#range").on("input", function () {
     updateRangeOutput();
 });
 $("#submit").click(function(){
