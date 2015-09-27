@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Device.Location;
 
 namespace spotstop31.Controllers
 {
@@ -32,6 +33,10 @@ namespace spotstop31.Controllers
 
             Random random = new Random();
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
+            int amountOfSpots = 0;
+            //int radiusCoord = radius;
+
+            GeoCoordinate coords = new GeoCoordinate(myLat, myLong);
 
             for (int i = 0; i < 100; i++)
             {
@@ -41,57 +46,64 @@ namespace spotstop31.Controllers
                 double randomNumberLat = 0.000000;
                 double randomNumberLong = 0.000000;
                 double randomSign = random.NextDouble();
-                double magnitudeLat = 0;
-                double magnitudeLong = 0;
-                bool latSignChange = false;
-                bool longSignChange = false;
+                //double magnitudeLat = 0;
+                //double magnitudeLong = 0;
+                //bool latSignChange = false;
+                //bool longSignChange = false;
 
                 if (randomSign < 0.5)
                 {
-                    randomNumberLat = random.NextDouble() * (-100);
-                    randomNumberLong = random.NextDouble() * (-100);
+                    randomNumberLat = random.NextDouble() * (-90);
+                    randomNumberLong = random.NextDouble() * (-180);
                 } else
                 {
-                    randomNumberLat = random.NextDouble() * (100);
-                    randomNumberLong = random.NextDouble() * (100);
-                }
-                if (Math.Sign(myLat) < 0 && Math.Sign(randomNumberLat) >= 0)
-                {
-                    magnitudeLat = Math.Abs(myLat) + Math.Abs(randomNumberLat);
-                }
-                else if(Math.Sign(myLat) > 0 && Math.Sign(randomNumberLat) >= 0)  {
-                    magnitudeLat = Math.Abs(myLat) + Math.Abs(randomNumberLat);
+                    randomNumberLat = random.NextDouble() * (90);
+                    randomNumberLong = random.NextDouble() * (180);
                 }
 
-                if (Math.Sign(myLong) < 0 && Math.Sign(randomNumberLong) >= 0)
-                {
-                    magnitudeLong = Math.Abs(myLong) + Math.Abs(randomNumberLong);
-                }
-                else if (Math.Sign(myLong) > 0 && Math.Sign(randomNumberLong) >= 0)
-                {
-                    magnitudeLong = Math.Abs(myLong) + Math.Abs(randomNumberLong);
-                }
+                GeoCoordinate randomCoords = new GeoCoordinate(randomNumberLat, randomNumberLong);
+                double magnitude = coords.GetDistanceTo(randomCoords); // in meters
+                magnitude = magnitude * 0.00062137; // converting from meters to miles
 
-                if (!latSignChange)
-                {
-                    magnitudeLat = Math.Abs(randomNumberLat - myLat);
-                }
-                if (!longSignChange)
-                {
-                    magnitudeLong = Math.Abs(randomNumberLong - myLong);
-                }
-                double distance = Math.Sqrt(magnitudeLong * magnitudeLong + magnitudeLat * magnitudeLat);
-                if (distance > radius)
+                //if (Math.Sign(myLat) < 0 && Math.Sign(randomNumberLat) >= 0)
+                //{
+                //    magnitudeLat = Math.Abs(myLat) + Math.Abs(randomNumberLat);
+                //}
+                //else if(Math.Sign(myLat) > 0 && Math.Sign(randomNumberLat) >= 0)  {
+                //    magnitudeLat = Math.Abs(myLat) + Math.Abs(randomNumberLat);
+                //}
+
+                //if (Math.Sign(myLong) < 0 && Math.Sign(randomNumberLong) >= 0)
+                //{
+                //    magnitudeLong = Math.Abs(myLong) + Math.Abs(randomNumberLong);
+                //}
+                //else if (Math.Sign(myLong) > 0 && Math.Sign(randomNumberLong) >= 0)
+                //{
+                //    magnitudeLong = Math.Abs(myLong) + Math.Abs(randomNumberLong);
+                //}
+
+                //if (!latSignChange)
+                //{
+                //    magnitudeLat = Math.Abs(randomNumberLat - myLat);
+                //}
+                //if (!longSignChange)
+                //{
+                //    magnitudeLong = Math.Abs(randomNumberLong - myLong);
+                //}
+                //double distance = Math.Sqrt(magnitudeLong * magnitudeLong + magnitudeLat * magnitudeLat);
+                if (magnitude > radius)
                 {
                     continue;
                 }
                 else
                 {
+                    amountOfSpots++;
+                    sq.amountOfSpots = amountOfSpots;
                     sq.latitude = randomNumberLat;
                     sq.longitude = randomNumberLong;
                     sq.startTime = new DateTime(2015, 9, 25);
                     sq.endTime = new DateTime(2015, 9, 26);
-                    sq.radius = 30.00;
+                    sq.radius = radius;
                     s.Add(sq);
                 }
             }
