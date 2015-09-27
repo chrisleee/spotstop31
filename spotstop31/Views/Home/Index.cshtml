@@ -11,9 +11,15 @@
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="Content/styles.css" rel="stylesheet">
+        <style>
+            .container {
+                margin:0 !important;
+            }
+        </style>
 	</head>
-	<body>
+	<body style="overflow-x:hidden">
 <!-- begin template -->
+        <div class="container-full" >
 <div class="navbar navbar-custom navbar-fixed-top">
  <div class="navbar-header"><a class="navbar-brand" href="#">SpotStop</a>
       <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,70 +53,84 @@
     </div>
 </div>
 
-<div id="map-canvas"></div>
-<div class="container-fluid" id="main">
+        <!--><div  id="map-canvas"></div>     <!-->
+
   <div class="row">
-  	<div class="col-xs-8" id="left">
-    
-      <h2>Find a Spot</h2>
-		<form class="navbar-form">
-        <div class="form-group" style="display:inline;">
-          <div class="input-group">
-            
-            <input type="text" class="form-control input-box-homepage" id = "latLong" placeholder="Location in Latlong"> 
+      <div class="col-lg-12">
+          <div class="row">
+              
+              <div id="blah" class="col-sm-4"><!--map- will be postioned here--></div>
+              <div class="col-sm-6" id="">
 
-            <span class="input-group-addon" id = "submit"><span class="glyphicon glyphicon-search"> </span> </span>
-            <input type="range" min="0" max="50" defaultValue="2" id = "range" onchange="updateRangeOutput()"><span id = "rangeOutput"> 2 </span>
+                  <h2>Find a Spot</h2>
+                  <form class="navbar-form">
+                      <div class="form-group" style="display:inline;">
+                          <div class="input-group">
+
+                              <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Location in Latlong">
+
+                              <span class="input-group-addon" id="submit"><span class="glyphicon glyphicon-search"> </span> </span>
+                              <input type="range" min="0" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()"><span id="rangeOutput"> 2 </span>
+                          </div>
+                      </div>
+                  </form>
+
+                  <!-- item list -->
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading"><a href="">Item heading</a></div>
+                  </div>
+                  <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                      Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                      dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                      Aliquam in felis sit amet augue.
+                  </p>
+
+                  <hr>
+                  <!-- /item list -->
+
+                  <hr>
+
+              </div>
           </div>
-        </div>
-      </form>
-      
-      <!-- item list -->
-      <div class="panel panel-default">
-        <div class="panel-heading"><a href="">Item heading</a></div>
       </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-        Aliquam in felis sit amet augue.</p>
-      
-      <hr>
-      
-      <div class="panel panel-default">
-        <div class="panel-heading"><a href="">Item heading</a></div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-        Aliquam in felis sit amet augue.</p>
-      
-      <hr>
-      
-      <div class="panel panel-default">
-        <div class="panel-heading"><a href="">Item heading</a></div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-        Aliquam in felis sit amet augue.</p>
-      
-      <hr>
-      
-      <div class="panel panel-default">
-        <div class="panel-heading"><a href="">Item heading</a></div>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-        Aliquam in felis sit amet augue.</p>
-      
-      <hr>
-      <!-- /item list -->
-      
-      <hr>      
-
-    </div>
-    <div class="col-xs-4"><!--map-canvas will be postioned here--></div>
+  	
     
   </div>
 </div>

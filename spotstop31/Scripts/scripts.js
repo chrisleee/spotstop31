@@ -30,7 +30,7 @@ function initialize() {
     animation: google.maps.Animation.DROP
   });
   
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  var map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
 
 };
