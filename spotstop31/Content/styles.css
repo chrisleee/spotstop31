@@ -12,6 +12,10 @@ author: bootply.com
     background-color:lightgray
 }
 
+.our-panel{
+    cursor:pointer;
+}
+
 
 html,body{
   	height:100%;
