@@ -140,6 +140,9 @@ namespace spotstop31.Controllers
         public ActionResult Intro() {
             return View();
         }
+        public ActionResult post() {
+            return View();
+        }
     }
 
     public class PosterData
