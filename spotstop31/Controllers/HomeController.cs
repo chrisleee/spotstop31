@@ -82,7 +82,7 @@ namespace spotstop31.Controllers
             
         }
 
-        public ActionResult NewSearch (double myLat, double myLong, int radius, double rate)
+        public ActionResult NewSearch (double myLat, double myLong, double radius, double rate)
         {
 
             List<spotstop31.Models.SearchQuery> s = new List<spotstop31.Models.SearchQuery>();
@@ -109,7 +109,8 @@ namespace spotstop31.Controllers
                         sq.endTime = new DateTime(2015, 9, 26);
                         sq.radius = radius;
                         sq.name = fetchedPosterData[i].name;
-                        sq.rate = fetchedPosterData[i].rate;
+                        sq.rate = Math.Round(fetchedPosterData[i].rate, 2);
+                        sq.distance = Math.Round(magnitude, 2);
                         s.Add(sq);
                     }
                 }
