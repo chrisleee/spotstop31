@@ -51,15 +51,19 @@ namespace spotstop31.Controllers
                 //bool latSignChange = false;
                 //bool longSignChange = false;
 
-                if (randomSign < 0.5)
-                {
-                    randomNumberLat = random.NextDouble() * (-90);
-                    randomNumberLong = random.NextDouble() * (-180);
-                } else
-                {
-                    randomNumberLat = random.NextDouble() * (90);
-                    randomNumberLong = random.NextDouble() * (180);
-                }
+                //if (randomSign < 0.5)
+                //{
+                //    randomNumberLat = random.NextDouble() * (-90);
+                //    randomNumberLong = random.NextDouble() * (-180);
+                //} else
+                //{
+                //    randomNumberLat = random.NextDouble() * (90);
+                //    randomNumberLong = random.NextDouble() * (180);
+                //}
+
+                randomNumberLat = random.NextDouble() * (30.563148 - 29.901080) + 29.901080;
+                randomNumberLong = -(random.NextDouble() * (98.216400 - 97.31521) + 97.31521);
+
 
                 GeoCoordinate randomCoords = new GeoCoordinate(randomNumberLat, randomNumberLong);
                 double magnitude = coords.GetDistanceTo(randomCoords); // in meters
