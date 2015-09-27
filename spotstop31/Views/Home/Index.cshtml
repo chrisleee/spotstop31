@@ -53,18 +53,20 @@
               <div class="col-sm-6" id="" style="height:75vh">
 
                   <h2>Find Your Spot</h2>
+                  <div style="width:50%">
+                      <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Where do you want to go?">
+
+                      <input type="number" name="quantity" min="1" max="1000" id="rate">/hour
+                  </div>
                   <form class="navbar-form">
                       <div class="form-group" style=";">
                           
                           <div class="input-group">
 
-                              <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Where do you want to go?">
                               
-                                       Rate $
-                                  <input type="number" name="quantity" min="1" max="1000" id="rate">/hour
                             
                               <span class="input-group-addon" id="submit"><span class="glyphicon glyphicon-search"> </span> </span>
-                              <input style="margin-left:10px; display:block" type="range" step=".1" min="1" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()">&nbsp;&nbsp;<span style="margin-left:10px; width:5px;" id="rangeOutput"> 2 </span> miles
+                              <input style="float:left; margin-left:10px; display:block" type="range" step=".1" min="1" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()">&nbsp;&nbsp;<span style="margin-left:10px; width:5px;" id="rangeOutput"> 2 </span> miles
                           </div>
                       </div>
                   </form>

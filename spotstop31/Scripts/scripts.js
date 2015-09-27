@@ -57,14 +57,16 @@ function changeMap(lat,lng) {
     animation: google.maps.Animation.DROP,
  
   });
-  
+
+
   map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
-
+  centerPoint = marker;
+  listOfMarkers[0] = centerPoint;
 
 };
 var map;
-
+var centerPoint;
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
     url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=true",
@@ -112,7 +114,7 @@ function placeMarkers(points) {
         infowindow.setContent(""+this.position);
         infowindow.open(map, this);
     });
-    listOfMarkers[i] = marker2;
+    listOfMarkers[i+1] = marker2;
     
    
   }
