@@ -110,7 +110,7 @@ namespace spotstop31.Controllers
                         sq.radius = radius;
                         sq.name = fetchedPosterData[i].name;
                         sq.rate = fetchedPosterData[i].rate;
-                        sq.distance = magnitude;
+                        sq.distance = Math.Round(magnitude, 2);
                         s.Add(sq);
                     }
                 }
