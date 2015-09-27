@@ -93,9 +93,10 @@ function placeMarkers(points) {
     });
     marker2.addListener('click', function () {
         var geo = new google.maps.Geocoder;
+        var address;
         geo.geocode({ 'location': this.position }, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
-                var address = results[0].formatted-address;
+               address = results[0].formatted-address;
             }
         });
             infowindow.setContent(""+address);
