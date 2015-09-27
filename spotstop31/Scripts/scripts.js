@@ -15,6 +15,7 @@ $("#submit").click(function(){
     addressToLanLat(address);
   });
 
+
 function initialize() {
 
   /* position Austin */
@@ -66,7 +67,7 @@ var map;
 
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=true",
+    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate+"&randomSimul=false",
  
 })
   .done(function( data ) {
@@ -74,7 +75,7 @@ $.ajax({
       console.log("hi");
       console.log(data);
     }
-   // data = JSON.parse('[{"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
+    //data = JSON.parse('[{"rate":3,"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"rate":5,"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
     placeMarkers(data);
     $("#ParentList").empty();
     data = mergeSortDistance(data);
@@ -143,7 +144,7 @@ function mergeDistance(left, right){
     return result.concat(left.slice(il)).concat(right.slice(ir));
 }
 
-    //function sort
+    //Sort
 function mergeSortDistance(items){
 
     // Terminal case: 0 or 1 item arrays don't need sorting
@@ -158,15 +159,14 @@ function mergeSortDistance(items){
     return mergeDistance(mergeSortDistance(left), mergeSortDistance(right));
 }
 
+    //Add Elements to Side List
 function addElements(data) {
     console.log("hi");
-    
+
     for (var i = 0; i < data.length; i++) {
-    var geo = new google.maps.Geocoder;
-        var lat =data[i].latitude;
+        var lat = data[i].latitude;
         var lng = data[i].longitude;
         var spots = data[i].amountOfSpots;
-        console.log(data[i]);
         var latLng = new google.maps.LatLng(lat, lng);
         var div = $("<div>").addClass("panel panel-default").attr("id", i);
         var thereString;
@@ -179,11 +179,18 @@ function addElements(data) {
             thereString = "There are ";
             spotsString = " spots ";
         }
-        div.html("<h3>" + data[i].distance + " miles away</h5> <p> "+thereString + spots+spotsString+"available at this location. </p>");
+        div.html("<h3> $" + data[i].rate + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
         $("#ParentList").append(div);
-            }
+        div.data("lat", lat);
+        div.data("lng", lng);
+        div.click(function () {
+            var latLng = ($(this).data(lat), $(this).data(lng));
+            var lat = latLng.lat;
+            map.setCenter(latLng);
+        })
 
     }
+}
     
 
 function addressToLanLat(address){
