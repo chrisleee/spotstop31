@@ -124,12 +124,13 @@ function addElements(data) {
         var latLng = new google.maps.LatLng(lat, lng);
         geo.geocode({'location':latLng}, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
-                 var div = $("<div>").addClass("panel panel-default").attr("id", i);
-                
                 var address = results[0].formatted_address;
-                div.html(""  + address);
+                $("#ParentList").append($("<div>").addClass("panel panel-default").text(address));
                 
-                $("#ParentList").append(div);
+                
+                
+                
+               
             }
 
         })
