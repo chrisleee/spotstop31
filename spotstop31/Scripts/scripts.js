@@ -2,6 +2,8 @@
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
+
 $("#submit").click(function(){
     console.log("clicked");
     var latLong = $("#latLong").val();
@@ -83,5 +85,8 @@ function placeMarkers(points) {
     marker2.setMap(map);
   }
 };
+function updateRangeOutput() {
+  $("#rangeOutput").text($("#range").val());
+}
 /* end google maps -----------------------------------------------------*/
 });
