@@ -7,7 +7,7 @@ $("#submit").click(function(){
     var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    placeMarkers();
+    placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
   });
 
 function initialize() {
@@ -54,10 +54,7 @@ function changeMap(lat,lng) {
 };
 var map;
 
-function placeMarkers() {
-  var points = [];
-  points[0] = [30.288815, -97.747512];
-  points[1] = [30.292897, -97.726403];
+function placeMarkers(points) {
   for (var i = 0;i<points.length;i++){
     var lat = points[i][0];
     var lng = points[i][1];
