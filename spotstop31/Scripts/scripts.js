@@ -9,7 +9,6 @@ $("#submit").click(function(){
     var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    placeMarkers([[30.288815, -97.747512],[30.292897, -97.726403]]);
     getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val());
   });
 
@@ -83,6 +82,10 @@ function placeMarkers(points) {
       animation: google.maps.Animation.DROP
     });
     marker2.setMap(map);
+    marker2.click(function () {
+        console.log("clicked")
+
+    });
   }
 };
 
