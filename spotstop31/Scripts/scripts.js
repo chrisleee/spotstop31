@@ -105,7 +105,6 @@ function placeMarkers(points) {
     });
     
     marker2.setMap(map);
-    contentString = "hello " + lat;
     var infowindow = new google.maps.InfoWindow({
         content: "holding..."
     });
@@ -179,7 +178,7 @@ function addElements(data) {
             thereString = "There are ";
             spotsString = " spots ";
         }
-        div.html("<h3> $" + data[i].rate + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
+        div.html("<h3> ($" + data[i].rate.toFixed(2) + ") " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
         $("#ParentList").append(div);
         div.data("lat", lat);
         div.data("lng", lng);
@@ -187,6 +186,7 @@ function addElements(data) {
             var latLng = ($(this).data(lat), $(this).data(lng));
             var lat = latLng.lat;
             map.setCenter(latLng);
+            map.setZoom(17);
         })
 
             }
