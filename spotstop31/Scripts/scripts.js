@@ -7,7 +7,7 @@ $("#submit").click(function(){
     var latLong = $("#latLong").val();
     var arraylatLong = latLong.split(" ");
     changeMap(arraylatLong[0],arraylatLong[1]);
-    placeMarkers(makeArray());
+    /*placeMarkers(makeArray()); */
   });
 
 function initialize() {
