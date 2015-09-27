@@ -66,13 +66,14 @@ $.ajax({
       console.log("hi");
       console.log(data);
     }
+    placeMarkers(points);
   });
 }
 
 function placeMarkers(points) {
   for (var i = 0;i<points.length;i++){
-    var lat = points[i][0];
-    var lng = points[i][1];
+    var lat = points[i].latitude;
+    var lng = points[i].longitude;
     var latlng = new google.maps.LatLng(lat,lng);
     var marker2 = new google.maps.Marker({
       position: latlng,
