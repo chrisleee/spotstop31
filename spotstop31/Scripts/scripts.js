@@ -12,7 +12,7 @@ $("#submit").click(function(){
     getRandomPoints(arraylatLong[0],arraylatLong[1],$("#range").val()); */
     console.log("click");
     var address = $("#latLong").val();
-    console.log(latLong);
+    console.log(addressToLanLat(address));
     changeMap(latLong.lat(), latLong.lng());
     getRandomPoints(arraylatLong[0], arraylatLong[1], $("#range").val());
   });
