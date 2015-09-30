@@ -77,7 +77,7 @@ $.ajax({
       console.log("hi");
       console.log(data);
     }
-    data = JSON.parse('[{"rate":3,"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"rate":5,"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
+   // data = JSON.parse('[{"rate":3,"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"rate":5,"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
     placeMarkers(data);
     $("#ParentList").empty();
     data = mergeSortDistance(data);
@@ -188,7 +188,7 @@ function addElements(data) {
             thereString = "There are ";
             spotsString = " spots ";
         }
-        div.html("<h3> $" + data[i].rate.toFixed(2) + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p> <span class="input-group-addon" id="+i+"><span class="glyphicon glyphicon-search"> </span> </span>");
+        div.html("<h3> $" + data[i].rate.toFixed(2) + ":  Located " + data[i].distance + " miles away</h5> <p> " + thereString + spots + spotsString + "available at this location. </p>");
         $("#ParentList").append(div);
         div.data("lat", lat);
         div.data("lng", lng);
