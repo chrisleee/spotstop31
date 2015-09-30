@@ -186,6 +186,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cars.jpg" />
     <Content Include="Content\jquery.datetimepicker.css" />
+    <Content Include="Content\parkingspot.jpg" />
+    <Content Include="Content\parkingspotwsign.jpg" />
     <Content Include="Content\parkicon.png" />
     <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
@@ -196,6 +198,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\spotstop31.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\intoJS.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
