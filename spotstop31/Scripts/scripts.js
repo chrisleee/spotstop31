@@ -29,12 +29,12 @@ function initialize() {
   
   
 
-  var marker = new google.maps.Marker({
-    position: latlng,
-    url: '/',
-    animation: google.maps.Animation.DROP,
+  //var marker = new google.maps.Marker({
+  //  position: latlng,
+  //  url: '/',
+  //  animation: google.maps.Animation.DROP,
     
-  });
+  //});
   
   var map = new google.maps.Map(document.getElementById("blah"), mapOptions);
   marker.setMap(map);
@@ -210,7 +210,7 @@ function addressToLanLat(address){
          if (status === google.maps.GeocoderStatus.OK) {
              var latLong = results[0].geometry.location;
              changeMap(latLong.lat(), latLong.lng());
-             getRandomPoints(latLong.lat(), latLong.lng(), $("#range").val(), $("#rate").val());
+             getRandomPoints(latLong.lat(), latLong.lng(), 5, $("#rate").val());
          }
             });
 };

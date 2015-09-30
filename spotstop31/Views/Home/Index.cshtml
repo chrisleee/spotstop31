@@ -45,18 +45,19 @@
 
         <!--><div  id="map-canvas"></div>     <!-->
 
-  <div class="row" style="padding-left:10px">
-      <div class="col-lg-12">
-          <div class="row" style="height:90vh">
+  <div class="row" style="padding-left:10px; margin-right:0px; background-color:#F2F2F2">
+      <div class="col-lg-12" style="padding-left:10px; padding-right:0px">
+          <div class="row" style="height:90vh; width:100vw;">
               
-              <div id="blah" class="col-sm-4"><!--map- will be postioned here--></div>
-              <div class="col-sm-6" id="" style="height:75vh">
+              <div id="blah" class="col-sm-6"><!--map- will be postioned here--></div>
+              <div class="col-sm-6" id="" style="height:75vh; ">
 
                   <h2>Find Your Spot</h2>
-                  <div style="width:50%">
-                      <input type="text" class="form-control input-box-homepage" id="latLong" placeholder="Where do you want to go?">
-
-                      <input type="number" name="quantity" min="1" max="1000" id="rate">/hour
+                  <div>
+                      <input type="text" style="float:left; display:inline-block"class="form-control input-box-homepage" id="latLong" placeholder="Where do you want to go?">
+                      
+                      <input type="number" style="float:left; height:34px; padding: 6px 12px; border:1px solid #ccc; border-radius:4px;" name="quantity" min="1" max="1000" id="rate" placeholder="$10/hr">
+                      <span style="height:34px; padding: 6px 12px; width:50px; border:1px solid #ccc; border-radius:4px; float:left; display:inline-block;" class="input-group-addon" id="submit"><span class="glyphicon glyphicon-search"> </span> </span>
                   </div>
                   <form class="navbar-form">
                       <div class="form-group" style=";">
@@ -65,26 +66,20 @@
 
                               
                             
-                              <span class="input-group-addon" id="submit"><span class="glyphicon glyphicon-search"> </span> </span>
-                              <input style="float:left; margin-left:10px; display:block" type="range" step=".1" min="1" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()">&nbsp;&nbsp;<span style="margin-left:10px; width:5px;" id="rangeOutput"> 2 </span> miles
+                              
+                              @*<input style="float:left; margin-left:10px; display:block" type="range" step=".1" min="1" max="5" defaultValue="2" id="range" onchange="updateRangeOutput()">&nbsp;&nbsp;<span style="margin-left:10px; width:5px;" id="rangeOutput"> 2 </span> miles*@
                           </div>
                       </div>
                   </form>
 
-                  <div id="ParentList"  style=" overflow-y:scroll; height:100%"></div>
+                  <div id="ParentList"  style=" overflow-y:scroll;"></div>
                   
 
-                  <hr>
-
-                      <hr>
-                  <!-- /item list -->
-                  </div>
-                  
-
-                  <hr>
+                
 
               </div>
           </div>
+      </div>
       </div>
   	
     
