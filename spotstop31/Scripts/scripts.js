@@ -68,6 +68,9 @@ function changeMap(lat,lng) {
 var map;
 var centerPoint;
 function getRandomPoints(lat, lng, radius, rate) {
+    if (rate = "") {
+        rate = 20;
+    }
 $.ajax({
    url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
  
@@ -119,8 +122,8 @@ function placeMarkers(points) {
         var geo = new google.maps.Geocoder;
         geo.geocode({ 'location': this.position }, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
-
-                infowindow.setContent(results[0].formatted_address);
+                infowindow.setContent("<p>Address: "+results[0].formatted_address+"</p><p>4 spots available.</p>");
+                //infowindow.setContent(results[0].formatted_address);
                
             }
             
