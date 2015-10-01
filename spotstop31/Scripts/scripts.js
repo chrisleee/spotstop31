@@ -74,8 +74,8 @@ $.ajax({
 })
   .done(function( data ) {
       console.log(data);
-      if (false) {
-          var div = $("<div>").addClass("panel panel-default our-panel").text("Oops! We couldn't find any nearby spots. Consider changing your price range.")
+      if (data.length == 0) {
+          var div = $("<div>").addClass("panel panel-default our-panel").text("Oops! We couldn't find any nearby spots. Consider changing your price range.");
           $("#parentList").append(div);
       }
       else {
