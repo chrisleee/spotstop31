@@ -68,7 +68,7 @@ function changeMap(lat,lng) {
 var map;
 var centerPoint;
 function getRandomPoints(lat, lng, radius, rate) {
-    if (rate = "") {
+    if (rate == "") {
         rate = 20;
     }
 $.ajax({
