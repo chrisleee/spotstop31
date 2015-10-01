@@ -69,19 +69,22 @@ var map;
 var centerPoint;
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-   url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
+   //url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
  
 })
   .done(function( data ) {
-    if ( console && console.log ) {
-      console.log("hi");
-      console.log(data);
-    }
-   // data = JSON.parse('[{"rate":3,"distance":4,"latitude":30.309484824783077,"longitude":-97.71957677706816,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":1},{"rate":5,"distance":5,"latitude":30.309110411456334,"longitude":-97.70736209831355,"radius":3,"startTime":"/Date(1443139200000)/","endTime":"/Date(1443225600000)/","amountOfSpots":2}]');
-    placeMarkers(data);
-    $("#ParentList").empty();
-    data = mergeSortDistance(data);
-    addElements(data);
+      if (data.length = 0) {
+          var div = $("<div>").addClass("panel panel-default our-panel").text("Oops! We couldn't find any nearby spots. Consider changing your price range.")
+          $("#parentList").append(div);
+      }
+      else {
+          placeMarkers(data);
+          $("#ParentList").empty();
+          data = mergeSortDistance(data);
+          addElements(data);
+      }
+   
+
   });
 }
 
