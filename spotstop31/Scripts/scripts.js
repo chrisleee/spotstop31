@@ -37,7 +37,7 @@ function initialize() {
   //});
   
   var map = new google.maps.Map(document.getElementById("blah"), mapOptions);
-  marker.setMap(map);
+  //marker.setMap(map);
 
 };
 function changeMap(lat,lng) {
@@ -76,7 +76,7 @@ $.ajax({
       console.log(data);
       if (data.length == 0) {
           var div = $("<div>").addClass("panel panel-default our-panel").text("Oops! We couldn't find any nearby spots. Consider changing your price range.");
-          $("#parentList").append(div);
+          $("#ParentList").append(div);
       }
       else {
           placeMarkers(data);
