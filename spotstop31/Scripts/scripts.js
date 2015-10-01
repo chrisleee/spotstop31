@@ -69,11 +69,12 @@ var map;
 var centerPoint;
 function getRandomPoints(lat, lng, radius, rate) {
 $.ajax({
-   //url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
+   url: "http://spotstop31.azurewebsites.net/home/newsearch?myLat="+lat+"&myLong="+lng+"&radius="+radius + "&rate="+rate,
  
 })
   .done(function( data ) {
-      if (data.length = 0) {
+      console.log(data);
+      if (false) {
           var div = $("<div>").addClass("panel panel-default our-panel").text("Oops! We couldn't find any nearby spots. Consider changing your price range.")
           $("#parentList").append(div);
       }
